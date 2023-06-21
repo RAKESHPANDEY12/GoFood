@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 
+const dotenv=require("dotenv")
+dotenv.config()
 
-
-
-const URL="mongodb+srv://pandeyrakesh1992:hello123@GoFood.ah5bv1b.mongodb.net/GoFoodData?retryWrites=true&w=majority"
-
+const URL=process.env.URL;
 const DB=()=>{
-     mongoose.connect(URL)
+     mongoose.connect(URL,{useUnifiedTopology: true,
+
+        useNewUrlParser: true,
+    })
      .then(()=>{
             console.log("connected");
             const fetched_data= mongoose.connection.db.collection("food_items");
