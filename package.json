@@ -5,10 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-  "front_end-install":"cd front-end && npm install",  
-   "front_end-build":"cd front-end && npm run build",
-   "heroku-postbuild":"npm run front_end-install && npm run front_end-build" 
+    "test": "echo \"Error: no test specified\" && exit 1"
 },
   
   "author": "Rakesh Pandey",

@@ -7,25 +7,18 @@ global.foodData = require('./db')(function call(err, data, CatData) {
 })
 
 const express = require('express');
-const { Connection } = require('mongoose');
-const app = express()
 
+const app = express()
+const dotenv = require('dotenv')
+dotenv.config();
+
+const BASE_URL=process.env.BASE_URL
 
 const port=process.env.PORT || 5000
 
-const USERNAME=process.env.DB_USERNAME;
-const PASSWORD=process.env.DB_PASSWORD;
-
-const URL=process.env.MONGODB_URI || `mongodb+srv://${USERNAME}:${PASSWORD}@GoFood.ah5bv1b.mongodb.net/GoFoodData?retryWrites=true&w=majority`
-
-Connection(URL);
-
-if(process.env.NODE_ENV==="production"){
-  app.use(express.static("front-end/build"))
- }
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "");
+  res.setHeader("Access-Control-Allow-Origin", `${BASE_URL}`);
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"

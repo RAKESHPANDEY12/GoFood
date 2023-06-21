@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 
-const Connection=(URL)=>{
+
+
+const URL="mongodb+srv://pandeyrakesh1992:hello123@GoFood.ah5bv1b.mongodb.net/GoFoodData?retryWrites=true&w=majority"
+
+const DB=()=>{
      mongoose.connect(URL)
      .then(()=>{
             console.log("connected");
@@ -24,4 +28,4 @@ const Connection=(URL)=>{
             console.log("...",err);
         })
 }
-module.exports=Connection;
+module.exports=DB;
